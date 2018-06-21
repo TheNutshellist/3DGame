@@ -9,15 +9,15 @@
 	function start() {
 		var canvas = document.getElementById('renderCanvas');
 		var engine = new BABYLON.Engine(canvas, true);
-
+var scene = new BABYLON.Scene(engine); 
 		var keys = {};
 window.addEventListener('keydown', function(e) {
 keys[e.key] = true;
 });
-window.addEventListener('keyup', function(e)
-); 
-		var scene = new BABYLON.Scene(engine); 
 
+window.addEventListener('keyup', function(e) {
+keys[e.key] = false;
+});
 var gravityVector = new BABYLON.Vector3(0, -9.81, 0);
 scene.enablePhysics(gravityVector, new BABYLON.CannonJSPlugin());
 
