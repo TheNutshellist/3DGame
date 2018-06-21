@@ -8,29 +8,74 @@
 		<script>
 	function start() {
 		var canvas = document.getElementById('renderCanvas');
-		var engine = new BABYLON.Engine(canvas, true); 
+		var engine = new BABYLON.Engine(canvas, true);
+
+		var keys = {};
+window.addEventListener('keydown', function(e) {
+keys[e.key] = true;
+});
+window.addEventListener('keyup', function(e)
+}); 
 		var scene = new BABYLON.Scene(engine); 
 
+var gravityVector = new BABYLON.Vector3(0, -9.81, 0);
+scene.enablePhysics(gravityVector, new BABYLON.CannonJSPlugin());
+
 		scene.clearColor = new BABYLON.Color3(0.5, 0.8, 0.5); 
+		//===TRACK CODE===//
+		var _xFn = function(t) {var fns = [function(t) {return (Math.pow((1-t),3)*0.6175071024894714)+(3*t*Math.pow((1-t),2)*0.17500710248947143)+(3*Math.pow(t,2)*(1-t)*0.7400071024894714)+(Math.pow(t,3)*0.8600071024894714)},function(t) {return (Math.pow((1-t),3)*0.8600071024894714)+(3*t*Math.pow((1-t),2)*0.9800071024894714)+(3*Math.pow(t,2)*(1-t)*0.12750710248947145)+(Math.pow(t,3)*0.24250710248947144)},function(t) {return (Math.pow((1-t),3)*0.24250710248947144)+(3*t*Math.pow((1-t),2)*0.35750710248947143)+(3*Math.pow(t,2)*(1-t)*0.19750710248947143)+(Math.pow(t,3)*0.052507102489471436)},function(t) {return (Math.pow((1-t),3)*0.052507102489471436)+(3*t*Math.pow((1-t),2)*-0.09249289751052857)+(3*Math.pow(t,2)*(1-t)*0.5175071024894714)+(Math.pow(t,3)*0.3400071024894714)},function(t) {return (Math.pow((1-t),3)*0.3400071024894714)+(3*t*Math.pow((1-t),2)*0.16250710248947142)+(3*Math.pow(t,2)*(1-t)*0.8300071024894714)+(Math.pow(t,3)*0.4700071024894714)},function(t) {return (Math.pow((1-t),3)*0.4700071024894714)+(3*t*Math.pow((1-t),2)*0.11000710248947143)+(3*Math.pow(t,2)*(1-t)*0.11250710248947143)+(Math.pow(t,3)*0.4675071024894714)},function(t) {return (Math.pow((1-t),3)*0.4675071024894714)+(3*t*Math.pow((1-t),2)*0.8225071024894715)+(3*Math.pow(t,2)*(1-t)*0.8525071024894715)+(Math.pow(t,3)*0.6475071024894714)},function(t) {return (Math.pow((1-t),3)*0.6475071024894714)+(3*t*Math.pow((1-t),2)*0.44250710248947145)+(3*Math.pow(t,2)*(1-t)*0.25250710248947145)+(Math.pow(t,3)*0.09250710248947143)},function(t) {return (Math.pow((1-t),3)*0.09250710248947143)+(3*t*Math.pow((1-t),2)*-0.06749289751052856)+(3*Math.pow(t,2)*(1-t)*0.6525071024894714)+(Math.pow(t,3)*0.6150071024894714)}];var i = Math.max(0,Math.min(8, Math.floor(t * 9)));return fns[i]((t - (i/9)) * 9);};
+var _yFn = function(t) {var fns = [function(t) {return (Math.pow((1-t),3)*0.6114915084838867)+(3*t*Math.pow((1-t),2)*0.08399150848388671)+(3*Math.pow(t,2)*(1-t)*0.5689915084838867)+(Math.pow(t,3)*0.13149150848388672)},function(t) {return (Math.pow((1-t),3)*0.13149150848388672)+(3*t*Math.pow((1-t),2)*-0.30600849151611326)+(3*Math.pow(t,2)*(1-t)*0.7614915084838867)+(Math.pow(t,3)*0.2739915084838867)},function(t) {return (Math.pow((1-t),3)*0.2739915084838867)+(3*t*Math.pow((1-t),2)*-0.21350849151611329)+(3*Math.pow(t,2)*(1-t)*0.3364915084838867)+(Math.pow(t,3)*0.3239915084838867)},function(t) {return (Math.pow((1-t),3)*0.3239915084838867)+(3*t*Math.pow((1-t),2)*0.31149150848388674)+(3*Math.pow(t,2)*(1-t)*0.8164915084838867)+(Math.pow(t,3)*0.5789915084838867)},function(t) {return (Math.pow((1-t),3)*0.5789915084838867)+(3*t*Math.pow((1-t),2)*0.3414915084838867)+(3*Math.pow(t,2)*(1-t)*0.6514915084838867)+(Math.pow(t,3)*0.9114915084838867)},function(t) {return (Math.pow((1-t),3)*0.9114915084838867)+(3*t*Math.pow((1-t),2)*1.1714915084838866)+(3*Math.pow(t,2)*(1-t)*0.5664915084838867)+(Math.pow(t,3)*0.7539915084838867)},function(t) {return (Math.pow((1-t),3)*0.7539915084838867)+(3*t*Math.pow((1-t),2)*0.9414915084838867)+(3*Math.pow(t,2)*(1-t)*0.5014915084838867)+(Math.pow(t,3)*0.13399150848388672)},function(t) {return (Math.pow((1-t),3)*0.13399150848388672)+(3*t*Math.pow((1-t),2)*-0.23350849151611328)+(3*Math.pow(t,2)*(1-t)*0.17399150848388673)+(Math.pow(t,3)*0.43149150848388673)},function(t) {return (Math.pow((1-t),3)*0.43149150848388673)+(3*t*Math.pow((1-t),2)*0.6889915084838867)+(3*Math.pow(t,2)*(1-t)*0.6839915084838867)+(Math.pow(t,3)*0.6114915084838867)}];var i = Math.max(0,Math.min(8, Math.floor(t * 9)));return fns[i]((t - (i/9)) * 9);};
+/* START CURVE DATA 
+{"start":[247.00284099578857,244.5966033935547],"init":[70.00284099578857,33.59660339355469],"segments":[{"a":[296.0028409957886,227.5966033935547],"b":[344.0028409957886,52.59660339355469]},{"a":[51.002840995788574,304.5966033935547],"b":[97.00284099578857,109.59660339355469]},{"a":[79.00284099578857,134.5966033935547],"b":[21.002840995788574,129.5966033935547]},{"a":[207.00284099578857,326.5966033935547],"b":[136.00284099578857,231.5966033935547]},{"a":[332.0028409957886,260.5966033935547],"b":[188.00284099578857,364.5966033935547]},{"a":[45.002840995788574,226.5966033935547],"b":[187.00284099578857,301.5966033935547]},{"a":[341.0028409957886,200.5966033935547],"b":[259.0028409957886,53.59660339355469]},{"a":[101.00284099578857,69.59660339355469],"b":[37.002840995788574,172.5966033935547]},{"a":[261.0028409957886,273.5966033935547],"b":[246.00284099578857,244.5966033935547]}]}
+   END CURVE DATA */
+/* START CURVE DATA
+{"start"}:"init":[40,10],"segments":[{"a":[65,10], "b":[90,80]}]}
+END CURVE DATA */
+
+//===END TRACK CODE===//
+var xFn = function(t) { return 650 * _xFn(t); }
+var zFn = function(t) { return 650 * _yFn(t); } 
 
 		var playerSphere = BABYLON.MeshBuilder.CreateSphere("playerSphere", {
 			segments: 12,
 			diameter: 4
 		}, scene);
-
 		playerSphere.material = new BABYLON.StandardMaterial("playerSphereMaterial", scene);
 		playerSphere.material.diffuseTexture = new BABYLON.Texture('resources/BeachBallColor.jpg', scene);
-		playerSphere.position = new BABYLON.Vector3(0, 0, 0); 
-
+		playerSphere.position = new BABYLON.Vector3(xFn(0), 9, zFn(0)); 
+		playerSphere.physicsImpostor = new BABYLON.PhysicsImpostor(playerSphere, BABYLON.PhysicsImpostor.SphereImpostor, {
+mass: 1,
+restitution: 0.9
+}, scene); 
 		var camera = new BABYLON.ArcRotateCamera("Camera", 0, (3 * Math.PI) / 8, 20, playerSphere, scene);
 		camera.attachControl(canvas, true);
-
 		var light = new BABYLON.HemisphericLight('light1', new BABYLON.Vector3(0, 1, 0), scene); 
+scene.registerAfterRender(function() { 
+		var vel = playerSphere.physicsImpostor.getLinearVelocity();
+playerSphere.physicsImpostor.setLinearVelocity(vel.scale(.98)); 
+var forward = camera.getFrontPosition(1).subtract(camera.position);
+forward.y = 0;
+forward = forward.normalize().scale(1); 
+var backward = BABYLON.Vector3.TransformCoordinates(forward, BABYLON.Matrix.RotationY(Math.PI));
+var left = BABYLON.Vector3.TransformCoordinates(forward, BABYLON.Matrix.RotationY((3 * Math.PI) / 2));
+var right = BABYLON.Vector3.TransformCoordinates(forward, BABYLON.Matrix.RotationY(Math.PI / 2));
+if (keys.w) {
+playerSphere.applyImpulse(forward, playerSphere.getAbsolutePosition());
+}
+if (keys.s) {
+playerSphere.applyImpulse(backward, playerSphere.getAbsolutePosition());
+}
+if (keys.a) {
+playerSphere.applyImpulse(left, playerSphere.getAbsolutePosition());
+}
+if (keys.d) {
+playerSphere.applyImpulse(right, playerSphere.getAbsolutePosition());
+}
 
-		engine.runRenderLoop(scene.render.bind(scene));
-		window.addEventListener('resize', engine.resize.bind(engine)); 
-
-		}
+if (playerSphere.position.y < -10) {
+lost();
+} 
+});
 
 		function drawPoint(x, z, zrot, scene) {
 var point = BABYLON.MeshBuilder.CreateBox('point', { 
@@ -48,60 +93,19 @@ restitution: 0.9
 }, scene);
 }
 
-drawPoint(0, 0, 0, scene);
-
-var gravityVector = new BABYLON.Vector3(0, -9.81, 0);
-scene.enablePhysics(gravityVector, new BABYLON.CannonJSPlugin()); 
-
-playerSphere.physicsImpostor = new BABYLON.PhysicsImpostor(playerSphere, BABYLON.PhysicsImpostor.SphereImpostor, {
-mass: 1,
-restitution: 0.9
-}, scene);
-
-var keys = {};
-window.addEventListener('keydown', function(e) {
-keys[e.key] = true;
-});
-
-window.addEventListener('keyup', function(e) {
-keys[e.key] = false;
-});
-
-var vel = playerSphere.physicsImpostor.getLinearVelocity();
-playerSphere.physicsImpostor.setLinearVelocity(vel.scale(.98)); 
-
-var forward = camera.getFrontPosition(1).subtract(camera.position);
-forward.y = 0;
-forward = forward.normalize().scale(1); 
-
-var backward = BABYLON.Vector3.TransformCoordinates(forward, BABYLON.Matrix.RotationY(Math.PI));
-
-var left = BABYLON.Vector3.TransformCoordinates(forward, BABYLON.Matrix.RotationY((3 * Math.PI) / 2));
-
-var right = BABYLON.Vector3.TransformCoordinates(forward, BABYLON.Matrix.RotationY(Math.PI / 2));
-
-if (keys.w) {
-playerSphere.applyImpulse(forward, playerSphere.getAbsolutePosition());
+function drawParametric(xFn, zFn, start, end, res, scene) {
+for (var t = start; t <= end; t += ((end - start) / res)) {
+drawPoint(xFn(t), zFn(t), 0, scene);
 }
-if (keys.s) {
-playerSphere.applyImpulse(backward, playerSphere.getAbsolutePosition());
-}
-if (keys.a) {
-playerSphere.applyImpulse(left, playerSphere.getAbsolutePosition());
-}
-if (keys.d) {
-playerSphere.applyImpulse(right, playerSphere.getAbsolutePosition());
-}
-
-scene.registerAfterRender(function() { 
-//Code from section 'Directional Commands' goes here! 
-
-if (playerSphere.position.y < -10) {
-lost();
 } 
-});
 
-function lost(){
+drawParametric(xFn, zFn, 0, 1, 350, scene);
+
+		engine.runRenderLoop(scene.render.bind(scene));
+		window.addEventListener('resize', engine.resize.bind(engine)); 
+		}
+
+		function lost(){
 window.location.reload();
 alert("you lose!");
 }
