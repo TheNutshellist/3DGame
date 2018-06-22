@@ -21,7 +21,7 @@ keys[e.key] = false;
 var gravityVector = new BABYLON.Vector3(0, -9.81, 0);
 scene.enablePhysics(gravityVector, new BABYLON.CannonJSPlugin());
 
-		scene.clearColor = new BABYLON.Color3(5, -0.8, -0.5); 
+		scene.clearColor = new BABYLON.Color3(-175, 20, 238); 
 		//===TRACK CODE===//
 		var _xFn = function(t) {var fns = [function(t) {return (Math.pow((1-t),3)*0.0375)+(3*t*Math.pow((1-t),2)*0.1)+(3*Math.pow(t,2)*(1-t)*0.1625)+(Math.pow(t,3)*0.7425)},function(t) {return (Math.pow((1-t),3)*0.7425)+(3*t*Math.pow((1-t),2)*1.3225)+(3*Math.pow(t,2)*(1-t)*0.8675)+(Math.pow(t,3)*0.785)},function(t) {return (Math.pow((1-t),3)*0.785)+(3*t*Math.pow((1-t),2)*0.7025)+(3*Math.pow(t,2)*(1-t)*0.6775)+(Math.pow(t,3)*0.8525)},function(t) {return (Math.pow((1-t),3)*0.8525)+(3*t*Math.pow((1-t),2)*1.0275)+(3*Math.pow(t,2)*(1-t)*0.465)+(Math.pow(t,3)*0.285)},function(t) {return (Math.pow((1-t),3)*0.285)+(3*t*Math.pow((1-t),2)*0.105)+(3*Math.pow(t,2)*(1-t)*0.3375)+(Math.pow(t,3)*0.09)},function(t) {return (Math.pow((1-t),3)*0.09)+(3*t*Math.pow((1-t),2)*-0.1575)+(3*Math.pow(t,2)*(1-t)*0.2175)+(Math.pow(t,3)*0.3075)},function(t) {return (Math.pow((1-t),3)*0.3075)+(3*t*Math.pow((1-t),2)*0.3975)+(3*Math.pow(t,2)*(1-t)*0.5225)+(Math.pow(t,3)*0.5225)},function(t) {return (Math.pow((1-t),3)*0.5225)+(3*t*Math.pow((1-t),2)*0.5225)+(3*Math.pow(t,2)*(1-t)*0.355)+(Math.pow(t,3)*0.3075)},function(t) {return (Math.pow((1-t),3)*0.3075)+(3*t*Math.pow((1-t),2)*0.26)+(3*Math.pow(t,2)*(1-t)*0.2275)+(Math.pow(t,3)*0.1025)},function(t) {return (Math.pow((1-t),3)*0.1025)+(3*t*Math.pow((1-t),2)*-0.0225)+(3*Math.pow(t,2)*(1-t)*0.445)+(Math.pow(t,3)*0.635)},function(t) {return (Math.pow((1-t),3)*0.635)+(3*t*Math.pow((1-t),2)*0.825)+(3*Math.pow(t,2)*(1-t)*0.525)+(Math.pow(t,3)*0.74)},function(t) {return (Math.pow((1-t),3)*0.74)+(3*t*Math.pow((1-t),2)*0.955)+(3*Math.pow(t,2)*(1-t)*0.7125)+(Math.pow(t,3)*0.825)},function(t) {return (Math.pow((1-t),3)*0.825)+(3*t*Math.pow((1-t),2)*0.9375)+(3*Math.pow(t,2)*(1-t)*0.3)+(Math.pow(t,3)*0.03)},function(t) {return (Math.pow((1-t),3)*0.03)+(3*t*Math.pow((1-t),2)*-0.24)+(3*Math.pow(t,2)*(1-t)*0.115)+(Math.pow(t,3)*0.3375)},function(t) {return (Math.pow((1-t),3)*0.3375)+(3*t*Math.pow((1-t),2)*0.56)+(3*Math.pow(t,2)*(1-t)*0.415)+(Math.pow(t,3)*0.5675)},function(t) {return (Math.pow((1-t),3)*0.5675)+(3*t*Math.pow((1-t),2)*0.72)+(3*Math.pow(t,2)*(1-t)*0.9075)+(Math.pow(t,3)*0.875)},function(t) {return (Math.pow((1-t),3)*0.875)+(3*t*Math.pow((1-t),2)*0.8425)+(3*Math.pow(t,2)*(1-t)*0.8475)+(Math.pow(t,3)*0.935)},function(t) {return (Math.pow((1-t),3)*0.935)+(3*t*Math.pow((1-t),2)*1.0225)+(3*Math.pow(t,2)*(1-t)*0.9625)+(Math.pow(t,3)*0.985)}];var i = Math.max(0,Math.min(17, Math.floor(t * 18)));return fns[i]((t - (i/18)) * 18);};
 var _yFn = function(t) {var fns = [function(t) {return (Math.pow((1-t),3)*0.0253125)+(3*t*Math.pow((1-t),2)*0.025)+(3*Math.pow(t,2)*(1-t)*0.025)+(Math.pow(t,3)*0.0228125)},function(t) {return (Math.pow((1-t),3)*0.0228125)+(3*t*Math.pow((1-t),2)*0.020625)+(3*Math.pow(t,2)*(1-t)*0.4053125)+(Math.pow(t,3)*0.3853125)},function(t) {return (Math.pow((1-t),3)*0.3853125)+(3*t*Math.pow((1-t),2)*0.3653125)+(3*Math.pow(t,2)*(1-t)*0.2878125)+(Math.pow(t,3)*0.1578125)},function(t) {return (Math.pow((1-t),3)*0.1578125)+(3*t*Math.pow((1-t),2)*0.0278125)+(3*Math.pow(t,2)*(1-t)*0.1653125)+(Math.pow(t,3)*0.0753125)},function(t) {return (Math.pow((1-t),3)*0.0753125)+(3*t*Math.pow((1-t),2)*-0.0146875)+(3*Math.pow(t,2)*(1-t)*0.3553125)+(Math.pow(t,3)*0.1628125)},function(t) {return (Math.pow((1-t),3)*0.1628125)+(3*t*Math.pow((1-t),2)*-0.0296875)+(3*Math.pow(t,2)*(1-t)*0.8128125)+(Math.pow(t,3)*0.7478125)},function(t) {return (Math.pow((1-t),3)*0.7478125)+(3*t*Math.pow((1-t),2)*0.6828125)+(3*Math.pow(t,2)*(1-t)*0.3778125)+(Math.pow(t,3)*0.3778125)},function(t) {return (Math.pow((1-t),3)*0.3778125)+(3*t*Math.pow((1-t),2)*0.3778125)+(3*Math.pow(t,2)*(1-t)*0.5878125)+(Math.pow(t,3)*0.5678125)},function(t) {return (Math.pow((1-t),3)*0.5678125)+(3*t*Math.pow((1-t),2)*0.5478125)+(3*Math.pow(t,2)*(1-t)*0.5628125)+(Math.pow(t,3)*0.3503125)},function(t) {return (Math.pow((1-t),3)*0.3503125)+(3*t*Math.pow((1-t),2)*0.1378125)+(3*Math.pow(t,2)*(1-t)*0.3478125)+(Math.pow(t,3)*0.2303125)},function(t) {return (Math.pow((1-t),3)*0.2303125)+(3*t*Math.pow((1-t),2)*0.1128125)+(3*Math.pow(t,2)*(1-t)*0.5278125)+(Math.pow(t,3)*0.5128125)},function(t) {return (Math.pow((1-t),3)*0.5128125)+(3*t*Math.pow((1-t),2)*0.4978125)+(3*Math.pow(t,2)*(1-t)*0.7703125)+(Math.pow(t,3)*0.8003125)},function(t) {return (Math.pow((1-t),3)*0.8003125)+(3*t*Math.pow((1-t),2)*0.8303125)+(3*Math.pow(t,2)*(1-t)*0.8628125)+(Math.pow(t,3)*0.7303125)},function(t) {return (Math.pow((1-t),3)*0.7303125)+(3*t*Math.pow((1-t),2)*0.5978125)+(3*Math.pow(t,2)*(1-t)*0.8503125)+(Math.pow(t,3)*0.9153125)},function(t) {return (Math.pow((1-t),3)*0.9153125)+(3*t*Math.pow((1-t),2)*0.9803125)+(3*Math.pow(t,2)*(1-t)*0.8478125)+(Math.pow(t,3)*0.9653125)},function(t) {return (Math.pow((1-t),3)*0.9653125)+(3*t*Math.pow((1-t),2)*1.0828125)+(3*Math.pow(t,2)*(1-t)*0.9878125)+(Math.pow(t,3)*0.6978125)},function(t) {return (Math.pow((1-t),3)*0.6978125)+(3*t*Math.pow((1-t),2)*0.4078125)+(3*Math.pow(t,2)*(1-t)*0.7503125)+(Math.pow(t,3)*0.5228125)},function(t) {return (Math.pow((1-t),3)*0.5228125)+(3*t*Math.pow((1-t),2)*0.2953125)+(3*Math.pow(t,2)*(1-t)*0.3578125)+(Math.pow(t,3)*0.9528125)}];var i = Math.max(0,Math.min(17, Math.floor(t * 18)));return fns[i]((t - (i/18)) * 18);};
@@ -83,6 +83,8 @@ boost.rotation.y += 0.01
 		camera.attachControl(canvas, true);
 		var light = new BABYLON.HemisphericLight('light1', new BABYLON.Vector3(0, 1, 0), scene);
 		rampAt(xFn, zFn, 0.07, -Math.PI / 4, scene); wallAt(xFn, zFn, 0.01, -6.1, scene);
+		var startTime;
+var timer = document.querySelector('#timer');
 scene.registerAfterRender(function() { 
 		var vel = playerSphere.physicsImpostor.getLinearVelocity();
 playerSphere.physicsImpostor.setLinearVelocity(vel.scale(.98)); 
@@ -93,6 +95,7 @@ var backward = BABYLON.Vector3.TransformCoordinates(forward, BABYLON.Matrix.Rota
 var left = BABYLON.Vector3.TransformCoordinates(forward, BABYLON.Matrix.RotationY((3 * Math.PI) / 2));
 var right = BABYLON.Vector3.TransformCoordinates(forward, BABYLON.Matrix.RotationY(Math.PI / 2));
 if (keys.w) {
+	if(!startTime){ startTime = Date.now(); } 
 playerSphere.applyImpulse(forward, playerSphere.getAbsolutePosition());
 }
 if (keys.s) {
@@ -116,6 +119,9 @@ if (currentT > 0.99) {
 if (playerSphere.position.y < -10) {
 lost();
 } 
+if(startTime) {
+timer.innerHTML = ((Date.now() - startTime) / 1000).toFixed(2).replace('.',':');
+}
 });
 
 		function drawPoint(x, z, zrot, scene) {
@@ -125,7 +131,7 @@ height: 0.5,
 depth: 12 
 }, scene);
 point.material = new BABYLON.StandardMaterial("pointMaterial", scene);
-point.material.diffuseColor = new BABYLON.Color3(-1, -0, -1);
+point.material.diffuseColor = new BABYLON.Color3(-10, 0.99, 9.90);
 point.position = new BABYLON.Vector3(x, 0.1, z);
 point.rotation.y = zrot;
 point.physicsImpostor = new BABYLON.PhysicsImpostor(point, BABYLON.PhysicsImpostor.BoxImpostor, {
@@ -169,7 +175,7 @@ width: .25,
 depth: 12
 }, scene);
 ramp.material = new BABYLON.StandardMaterial("rampMaterial", scene);
-ramp.material.diffuseColor = new BABYLON.Color3(1, 1, 0);
+ramp.material.diffuseColor = new BABYLON.Color3(-10, 0.99, 9.90);
 ramp.physicsImpostor = new BABYLON.PhysicsImpostor(ramp, BABYLON.PhysicsImpostor.BoxImpostor, {
 mass: 0,
 restitution: 0.9
@@ -188,7 +194,7 @@ depth: 12
 }, scene);
 angle = -derivAngle(t, xFn, zFn); 
 wall.material = new BABYLON.StandardMaterial("wallMaterial", scene);
-wall.material.diffuseColor = new BABYLON.Color3(1, 1, 0);
+wall.material.diffuseColor = new BABYLON.Color3(-10, 0.99, 9.90);
 wall.physicsImpostor = new BABYLON.PhysicsImpostor(wall, BABYLON.PhysicsImpostor.BoxImpostor, {
 mass: 0,
 restitution: 0.9
@@ -226,11 +232,19 @@ alert("you lose!");
 			height: 100%;
 			touch-action:none;
 		}
+		#timer {
+position: absolute;
+left:10px;
+bottom:10px;
+color:#ccc;
+font: 52px sans-serif;
+} 
 	</style>
 	</head>
 
 	<body onload="start()">
 		<canvas id="renderCanvas"></canvas>
+		<div id="timer">00:00</div>
 	</body>
 
 </html>
